@@ -1,0 +1,99 @@
+{
+  "ecma": 6,
+  "prefix": "H2A",
+  "pluginName": "Test",
+  "author": "Had2Apps",
+  "licence": "MIT",
+  "contact": ["https://twitter.com/katai5plate"],
+  "repository": "https://github.com/katai5plate/rpgmv-plugin-template",
+  "description": "This is generated pluginThis is the generated plugin.\nHello world!",
+  "commands": [
+    { "method": "ExecuteCommand", "arguments": ["string", "number", "number"] }
+  ],
+  "parameters": [
+    {
+      "name": "文字列型",
+      "type": "string",
+      "default": "テスト"
+    },
+    {
+      "name": "数値型",
+      "type": "number",
+      "min": 1,
+      "max": 100,
+      "decimals": 2,
+      "default": 1
+    },
+    {
+      "name": "論理型",
+      "type": "boolean",
+      "on": "はい",
+      "off": "いいえ",
+      "default": true
+    },
+    {
+      "name": "配列型(数値)",
+      "type": "array",
+      "of": "number",
+      "default": [1, 2, 3]
+    },
+    {
+      "name": "構造体",
+      "type": "struct",
+      "class": "MyPerson",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "default": "John"
+        },
+        {
+          "name": "age",
+          "type": "number",
+          "min": 18,
+          "default": 25
+        }
+      ]
+    },
+    {
+      "name": "セレクトボックス",
+      "type": "select",
+      "cases": [
+        { "option": "項目1", "value": 1 },
+        { "option": "項目2", "value": 2 }
+      ],
+      "default": 1
+    },
+    {
+      "name": "コンボボックス",
+      "type": "combo",
+      "options": ["項目1", "項目2"],
+      "default": 1
+    },
+    {
+      "name": "ノート",
+      "type": "note",
+      "default": "あいうえお\nかきくけこ\nさしすせそ"
+    },
+    {
+      "name": "ファイル",
+      "type": "file",
+      "dir": "img",
+      "default": "img/animations/Blow"
+    },
+    { "name": "アクター", "type": "actor", "default": 1 },
+    { "name": "職業", "type": "class", "default": 1 },
+    { "name": "スキル", "type": "skill", "default": 1 },
+    { "name": "アイテム", "type": "item", "default": 1 },
+    { "name": "武器", "type": "weapon", "default": 1 },
+    { "name": "防具", "type": "armor", "default": 1 },
+    { "name": "敵キャラ", "type": "enemy", "default": 1 },
+    { "name": "敵グループ", "type": "troop", "default": 1 },
+    { "name": "ステート", "type": "state", "default": 1 },
+    { "name": "アニメーション", "type": "animation", "default": 1 },
+    { "name": "タイルセット", "type": "tileset", "default": 1 },
+    { "name": "コモンイベント", "type": "common_event", "default": 1 },
+    { "name": "スイッチ", "type": "switch", "default": 1 },
+    { "name": "変数", "type": "variable", "default": 1 }
+  ]
+}
