@@ -1,0 +1,2 @@
+# rpgmv-plugin-template
+ツクールMVプラグインのテンプレートエディタ
