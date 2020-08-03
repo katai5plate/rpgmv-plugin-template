@@ -7,6 +7,17 @@
   "contact": ["https://twitter.com/katai5plate"],
   "repository": "https://github.com/katai5plate/rpgmv-plugin-template",
   "description": "This is generated pluginThis is the generated plugin.\nHello world!",
+  "environment": {
+    "core": "1.6.2",
+    "dependencies": [
+      {
+        "name": "pixi-hoge",
+        "version": "5.0.0",
+        "url": "https://github.com/pixijs"
+      }
+    ],
+    "note": "なんとかかんとかに依存しています。ご注意ください。"
+  },
   "commands": [
     { "method": "ExecuteCommand", "arguments": ["string", "number", "number"] }
   ],
