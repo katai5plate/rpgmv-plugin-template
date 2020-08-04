@@ -231,7 +231,14 @@ interface Preferences {
   /** プラグインのバージョン */
   version: Version;
   /** 作者名 */
-  author: string;
+  authors: string[];
+  /**
+   * コピーライト
+   * $0, $1, $2... で作者名を挿入できる。
+   * $$ でエスケープする
+   * 省略すると `Copyright (c) ${authors.join(", ")}.` になる
+   */
+  copyright?: string;
   /** プラグイン名の接頭辞 */
   prefix: string;
   /** プラグインのライセンス */
@@ -249,9 +256,20 @@ interface Preferences {
     /** 対応 ES バージョン */
     ecma: number;
     /** コアスクリプトバージョン */
-    core: string;
+    core?: Version;
+    /** エディタバージョン */
+    editor?: Version;
+    /** PIXI.js バージョン */
+    pixi?: Version;
+    /** NW.js バージョン */
+    nw?: Version;
     /** 動作環境に関する説明文 */
     note: string;
+    /**
+     * 動作環境チェックから外れた時のエラー
+     * NULLの場合、診断しない
+     */
+    throw?: string;
     /** 依存プラグイン・モジュール */
     dependencies: {
       /** 名前 */

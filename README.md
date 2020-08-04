@@ -6,8 +6,12 @@
 
 - demo.json のような JSON からプラグインを生成する
 - JSON エディタも作る
-- プラグインコマンドの実装も行われる
-- `Document.currentScript` による存在確認の実装もする
+- プラグインの初歩的な機能を実装しやすいよう、最初から必要な機能を実装した状態にする
+  - `'use strict'`
+  - パラメーターパーサー
+  - プラグインコマンド
+  - `Document.currentScript` による存在確認
+  - 動作環境確認と、動作対象外時のエラー
 
 ### json
 
@@ -18,7 +22,14 @@ interface Preferences {
   /** プラグインのバージョン */
   version: Version;
   /** 作者名 */
-  author: string;
+  authors: string[];
+  /**
+   * コピーライト
+   * $0, $1, $2... で作者名を挿入できる。
+   * $$ でエスケープする
+   * 省略すると `Copyright (c) ${authors.join(", ")}.` になる
+   */
+  copyright?: string;
   /** プラグイン名の接頭辞 */
   prefix: string;
   /** プラグインのライセンス */
@@ -36,9 +47,20 @@ interface Preferences {
     /** 対応 ES バージョン */
     ecma: number;
     /** コアスクリプトバージョン */
-    core: string;
+    core?: Version;
+    /** エディタバージョン */
+    editor?: Version;
+    /** PIXI.js バージョン */
+    pixi?: Version;
+    /** NW.js バージョン */
+    nw?: Version;
     /** 動作環境に関する説明文 */
     note: string;
+    /**
+     * 動作環境チェックから外れた時のエラー
+     * NULLの場合、診断しない
+     */
+    throw?: string;
     /** 依存プラグイン・モジュール */
     dependencies: {
       /** 名前 */
@@ -62,9 +84,7 @@ interface Preferences {
 
 interface PluginPreferences {
   main: Preferences;
-  i18n: {
-    [locale: string]: Partial<Preferences>;
-  };
+  [locale: string]: Partial<Preferences>;
 }
 ```
 
@@ -83,6 +103,8 @@ interface PluginPreferences {
 
 - `Number[]` は出力時 `["1", "2", "3"]` の値にする
 - `parent`, `text` は `parameters` 全 type に使用できる
+- 配列型の仕様を詳しく調べる
+- default は nullable なのか調べる
 
 ## 参考
 

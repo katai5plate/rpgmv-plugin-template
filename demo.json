@@ -1,6 +1,8 @@
 {
   "pluginName": "Test",
-  "author": "Had2Apps",
+  "authors": ["Had2Apps"],
+  "copyright": "Copyright (c) $0.",
+  "version": "1.0",
   "prefix": "H2A",
   "licence": "MIT",
   "contact": ["https://twitter.com/katai5plate"],
