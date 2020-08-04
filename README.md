@@ -6,12 +6,19 @@
 
 - demo.json のような JSON からプラグインを生成する
 - JSON エディタも作る
+- ライセンスエディタも作る
 - プラグインの初歩的な機能を実装しやすいよう、最初から必要な機能を実装した状態にする
+
   - `'use strict'`
   - パラメーターパーサー
   - プラグインコマンド
   - `Document.currentScript` による存在確認
   - 動作環境確認と、動作対象外時のエラー
+
+  ## todo
+
+- 配列型の仕様を詳しく調べる
+- default は nullable なのか調べる
 
 ### json
 
@@ -103,8 +110,14 @@ interface PluginPreferences {
 
 - `Number[]` は出力時 `["1", "2", "3"]` の値にする
 - `parent`, `text` は `parameters` 全 type に使用できる
-- 配列型の仕様を詳しく調べる
-- default は nullable なのか調べる
+- ライセンス
+  - http://mycode.snow69it.net/998/
+  - https://coliss.com/articles/build-websites/operation/work/choose-a-license-by-github.html
+    - https://qiita.com/tukiyo3/items/58b8b3f51e9dc8e96886
+    - GPL v2-3, MIT + BSD 2C, LGPL v2.1-3 が全く同じ
+    - Eclipse Public v1.0 と Mozilla Public v 2.0 が似てる
+    - Apache v2 + Affero GPL + Artistic 2.0, Public Domain + The BSD 3C が少し似てる
+    - No License は浮いてる
 
 ## 参考
 

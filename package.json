@@ -1,0 +1,31 @@
+{
+  "name": "rpgmv-plugin-template",
+  "version": "1.0.0",
+  "description": "ツクール MV プラグインのテンプレートエディタ",
+  "main": "index.js",
+  "dependencies": {
+    "openmv": "rpgtkoolmv/corescript"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katai5plate/rpgmv-plugin-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katai5plate/rpgmv-plugin-template/issues"
+  },
+  "homepage": "https://github.com/katai5plate/rpgmv-plugin-template#readme"
+}

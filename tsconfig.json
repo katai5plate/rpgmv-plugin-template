@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "lib": ["ES2015", "DOM", "DOM.Iterable"],
+    "outFile": "dist/bundle.js",
+    "allowJs": true,
+    "declaration": true
+  },
+  "exclude": ["dist"]
+}

@@ -223,7 +223,22 @@ type CustomLicence = {
   url: string;
 };
 
-type LicenceTypes = "MIT" | "CC0" | "WTFPL" | CustomLicence;
+type CreativeCommons =
+  | "CC0"
+  | "CC_BY"
+  | "CC_BY_NC"
+  | "CC_BY_ND"
+  | "CC_BY_NC_ND"
+  | "CC_BY_NC_SA";
+type LicenceTypes =
+  | "MIT"
+  | "BSD"
+  | "GPL"
+  | "Apatche"
+  | "JSON"
+  | "WTFPL"
+  | CreativeCommons
+  | CustomLicence;
 
 interface Preferences {
   /** プラグイン名 */
