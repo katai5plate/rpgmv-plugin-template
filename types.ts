@@ -1,7 +1,7 @@
 type PrimitiveTypeNames = "string" | "number" | "boolean";
 type ArrayTypeNames = "String" | "Number";
 
-type EditorParameterTypes =
+type EditorParamTypes =
   | "string"
   | "number"
   | "boolean"
@@ -11,7 +11,7 @@ type EditorParameterTypes =
   | "note"
   | "file";
 
-type DatabaseParameterTypes =
+type DatabaseParamTypes =
   | "actor"
   | "class"
   | "skill"
@@ -27,33 +27,33 @@ type DatabaseParameterTypes =
   | "switch"
   | "variable";
 
-type NativeParameterTypes = EditorParameterTypes | DatabaseParameterTypes;
+type NativeParamTypes = EditorParamTypes | DatabaseParamTypes;
 
-type ParameterTypes = "parent" | "array" | NativeParameterTypes;
+type ParamTypes = "parent" | "array" | NativeParamTypes;
 
 /** 親パラメータ */
-interface ParentParameter {
-  type: Extract<ParameterTypes, "parent">;
+interface ParentParam {
+  type: Extract<ParamTypes, "parent">;
   name: string;
-  parameters: Parameters;
+  params: Params;
 }
 /** 配列パラメータ */
-interface ArrayParameter {
-  type: Extract<ParameterTypes, "array">;
+interface ArrayParam {
+  type: Extract<ParamTypes, "array">;
   name: string;
   of: ArrayTypeNames;
   default: string[];
   text?: string;
 }
 
-interface StringParameter {
-  type: Extract<ParameterTypes, "string">;
+interface StringParam {
+  type: Extract<ParamTypes, "string">;
   name: string;
   default: string;
   text?: string;
 }
-interface NumberParameter {
-  type: Extract<ParameterTypes, "number">;
+interface NumberParam {
+  type: Extract<ParamTypes, "number">;
   name: string;
   min?: number;
   max?: number;
@@ -61,159 +61,161 @@ interface NumberParameter {
   default: number;
   text?: string;
 }
-interface BooleanParameter {
-  type: Extract<ParameterTypes, "boolean">;
+interface BooleanParam {
+  type: Extract<ParamTypes, "boolean">;
   name: string;
   on?: string;
   off?: string;
   default: boolean;
   text?: string;
 }
-interface StructParameter {
-  type: Extract<ParameterTypes, "struct">;
+interface StructParam {
+  type: Extract<ParamTypes, "struct">;
   name: string;
   class: "MyPerson";
-  parameters: Parameters;
+  params: Params;
   text?: string;
 }
-interface SelectParameter {
-  type: Extract<ParameterTypes, "select">;
+interface SelectParam {
+  type: Extract<ParamTypes, "select">;
   name: string;
   cases: { option: string; value: number }[];
   default: number;
   text?: string;
 }
-interface ComboParameter {
-  type: Extract<ParameterTypes, "combo">;
+interface ComboParam {
+  type: Extract<ParamTypes, "combo">;
   name: string;
   options: string[];
   default: number;
   text?: string;
 }
-interface NoteParameter {
-  type: Extract<ParameterTypes, "note">;
+interface NoteParam {
+  type: Extract<ParamTypes, "note">;
   name: string;
   default: string;
   text?: string;
 }
-interface FileParameter {
-  type: Extract<ParameterTypes, "file">;
+interface FileParam {
+  type: Extract<ParamTypes, "file">;
   name: string;
   dir: string;
   default: string;
   text?: string;
 }
-interface ActorParameter {
-  type: Extract<ParameterTypes, "actor">;
+interface ActorParam {
+  type: Extract<ParamTypes, "actor">;
   name: string;
   default: number;
   text?: string;
 }
-interface ClassParameter {
-  type: Extract<ParameterTypes, "class">;
+interface ClassParam {
+  type: Extract<ParamTypes, "class">;
   name: string;
   default: number;
   text?: string;
 }
-interface SkillParameter {
-  type: Extract<ParameterTypes, "skill">;
+interface SkillParam {
+  type: Extract<ParamTypes, "skill">;
   name: string;
   default: number;
   text?: string;
 }
-interface ItemParameter {
-  type: Extract<ParameterTypes, "item">;
+interface ItemParam {
+  type: Extract<ParamTypes, "item">;
   name: string;
   default: number;
   text?: string;
 }
-interface WeaponParameter {
-  type: Extract<ParameterTypes, "weapon">;
+interface WeaponParam {
+  type: Extract<ParamTypes, "weapon">;
   name: string;
   default: number;
   text?: string;
 }
-interface ArmorParameter {
-  type: Extract<ParameterTypes, "armor">;
+interface ArmorParam {
+  type: Extract<ParamTypes, "armor">;
   name: string;
   default: number;
   text?: string;
 }
-interface EnemyParameter {
-  type: Extract<ParameterTypes, "enemy">;
+interface EnemyParam {
+  type: Extract<ParamTypes, "enemy">;
   name: string;
   default: number;
   text?: string;
 }
-interface TroopParameter {
-  type: Extract<ParameterTypes, "troop">;
+interface TroopParam {
+  type: Extract<ParamTypes, "troop">;
   name: string;
   default: number;
   text?: string;
 }
-interface StateParameter {
-  type: Extract<ParameterTypes, "state">;
+interface StateParam {
+  type: Extract<ParamTypes, "state">;
   name: string;
   default: number;
   text?: string;
 }
-interface AnimationParameter {
-  type: Extract<ParameterTypes, "animation">;
+interface AnimationParam {
+  type: Extract<ParamTypes, "animation">;
   name: string;
   default: number;
   text?: string;
 }
-interface TilesetParameter {
-  type: Extract<ParameterTypes, "tileset">;
+interface TilesetParam {
+  type: Extract<ParamTypes, "tileset">;
   name: string;
   default: number;
   text?: string;
 }
-interface Common_eventParameter {
-  type: Extract<ParameterTypes, "common_event">;
+interface Common_eventParam {
+  type: Extract<ParamTypes, "common_event">;
   name: string;
   default: number;
   text?: string;
 }
-interface SwitchParameter {
-  type: Extract<ParameterTypes, "switch">;
+interface SwitchParam {
+  type: Extract<ParamTypes, "switch">;
   name: string;
   default: number;
   text?: string;
 }
-interface VariableParameter {
-  type: Extract<ParameterTypes, "variable">;
+interface VariableParam {
+  type: Extract<ParamTypes, "variable">;
   name: string;
   default: number;
   text?: string;
 }
 
-type Parameter =
-  | ParentParameter
-  | ArrayParameter
-  | StringParameter
-  | NumberParameter
-  | BooleanParameter
-  | StructParameter
-  | SelectParameter
-  | ComboParameter
-  | NoteParameter
-  | FileParameter
-  | ActorParameter
-  | ClassParameter
-  | SkillParameter
-  | ItemParameter
-  | WeaponParameter
-  | ArmorParameter
-  | EnemyParameter
-  | TroopParameter
-  | StateParameter
-  | AnimationParameter
-  | TilesetParameter
-  | Common_eventParameter
-  | SwitchParameter
-  | VariableParameter;
-type Parameters = Parameter[];
+type Param =
+  | ParentParam
+  | ArrayParam
+  | StringParam
+  | NumberParam
+  | BooleanParam
+  | StructParam
+  | SelectParam
+  | ComboParam
+  | NoteParam
+  | FileParam
+  | ActorParam
+  | ClassParam
+  | SkillParam
+  | ItemParam
+  | WeaponParam
+  | ArmorParam
+  | EnemyParam
+  | TroopParam
+  | StateParam
+  | AnimationParam
+  | TilesetParam
+  | Common_eventParam
+  | SwitchParam
+  | VariableParam;
+type Params = Param[];
+
+type Version = string | number;
 
 type CustomLicence = {
   name: string;
@@ -223,9 +225,11 @@ type CustomLicence = {
 
 type LicenceTypes = "MIT" | "CC0" | "WTFPL" | CustomLicence;
 
-export interface Preferences {
+interface Preferences {
   /** プラグイン名 */
   pluginName: string;
+  /** プラグインのバージョン */
+  version: Version;
   /** 作者名 */
   author: string;
   /** プラグイン名の接頭辞 */
@@ -253,7 +257,7 @@ export interface Preferences {
       /** 名前 */
       name: string;
       /** バージョン */
-      version: string | number;
+      version: Version;
       /** 入手先 */
       url: string;
     }[];
@@ -266,5 +270,10 @@ export interface Preferences {
     arguments: PrimitiveTypeNames[];
   }[];
   /** パラメーター */
-  parameters: Parameters;
+  params: Params;
+}
+
+interface PluginPreferences {
+  main: Preferences;
+  [locale: string]: Partial<Preferences>;
 }

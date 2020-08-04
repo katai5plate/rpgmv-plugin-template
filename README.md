@@ -12,9 +12,11 @@
 ### json
 
 ```ts
-export interface Preferences {
+interface Preferences {
   /** プラグイン名 */
   pluginName: string;
+  /** プラグインのバージョン */
+  version: Version;
   /** 作者名 */
   author: string;
   /** プラグイン名の接頭辞 */
@@ -42,7 +44,7 @@ export interface Preferences {
       /** 名前 */
       name: string;
       /** バージョン */
-      version: string | number;
+      version: Version;
       /** 入手先 */
       url: string;
     }[];
@@ -55,7 +57,25 @@ export interface Preferences {
     arguments: PrimitiveTypeNames[];
   }[];
   /** パラメーター */
-  parameters: Parameters;
+  params: Params;
+}
+
+interface PluginPreferences {
+  main: Preferences;
+  i18n: {
+    [locale: string]: Partial<Preferences>;
+  };
+}
+```
+
+```js
+{
+  // メイン言語での設定
+  "main": { /* ... */ },
+  "i18n": {
+    // 特定の言語で上書きする値を設定
+    "en": { /* ... */ }
+  }
 }
 ```
 
